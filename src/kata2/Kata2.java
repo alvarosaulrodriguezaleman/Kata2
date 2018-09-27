@@ -10,12 +10,8 @@ public class Kata2 {
             4, 4, 5, 5, 5, 6, 6, 6};
         Map<Integer, Integer> histogram = new HashMap<>();
         
-        for (int i = 0; i < array.length; i++) {
-            if (histogram.containsKey(array[i])) {
-                histogram.put(array[i], histogram.get(array[i])+1); 
-            } else {
-                histogram.put(array[i], 1);
-            }
+        for (int i : array) {
+            histogram.put(i, histogram.containsKey(i) ? histogram.get(i) + 1 : 1);
         }
         
         for (Map.Entry<Integer,Integer> entry : histogram.entrySet()) {
